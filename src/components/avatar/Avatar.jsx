@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../config/supabaseClient'
-
+import i18next from '../../config/localization/i18n';
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
   const [uploading, setUploading] = useState(false)
-
+ 
   useEffect(() => {
     if (url) downloadImage(url)
   }, [url])
@@ -66,7 +66,7 @@ export default function Avatar({ url, size, onUpload }) {
       )}
       <div style={{ width: size }}>
         <label className="button primary block" htmlFor="single">
-          {uploading ? 'Uploading ...' : 'Upload'}
+          {uploading ? i18next.t("avatarv2") : i18next.t("avatar")}
         </label>
         <input
           style={{

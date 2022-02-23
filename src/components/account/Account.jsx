@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../../config/supabaseClient'
 import Avatar from '../../components/avatar'
+import i18next from '../../config/localization/i18n';
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -66,26 +67,35 @@ export default function Account({ session }) {
     }
   }
 
+  //Seccion de metodos propios
+  function changeLenguage() {
+    let actual = localStorage.getItem('i18nextLng')
+    localStorage.setItem('i18nextLng', actual === "es" ? "en" : "es");
+    window.location.reload(false);
+  }
+
   return (
     <div className="form-widget">
-      <div className="form-widget">
-    {/* Add to the body */}
-    <Avatar
-      url={avatar_url}
-      size={150}
-      onUpload={(url) => {
-        setAvatarUrl(url)
-        updateProfile({ username, website, avatar_url: url })
-      }}
-    />
-    {/* ... */}
-  </div>
+
+      <div style={{ width: 150 }}>
+        <button className="button primary block" onClick={() => changeLenguage()} >{i18next.t("lan")}</button>
+      </div>
+      <Avatar
+        url={avatar_url}
+        size={150}
+        onUpload={(url) => {
+          setAvatarUrl(url)
+          updateProfile({ username, website, avatar_url: url })
+        }}
+      />
+
+
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{i18next.t("field1")}</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>
-        <label htmlFor="username">Name</label>
+        <label htmlFor="username">{i18next.t("field2")}</label>
         <input
           id="username"
           type="text"
@@ -94,7 +104,7 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="website">{i18next.t("field3")}</label>
         <input
           id="website"
           type="website"
@@ -109,7 +119,7 @@ export default function Account({ session }) {
           onClick={() => updateProfile({ username, website, avatar_url })}
           disabled={loading}
         >
-          {loading ? 'Loading ...' : 'Update'}
+          {loading ? i18next.t("button2v2") : i18next.t("button2")}
         </button>
       </div>
 
