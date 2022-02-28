@@ -12,6 +12,7 @@ import { Card } from "../../components/Card";
 import { getSpotifyToken, spotifySearch } from "../../api/Spotify";
 import Cookies from "universal-cookie";
 import Player from "./Player"
+import { TrackChanges } from "@mui/icons-material";
 
 
 
@@ -144,8 +145,8 @@ function Home() {
            <h3> <a href="https://github.com/AEAL117/Spotify">GitHub</a></h3>
            </div>
            {console.log("TOKEN PARA SPOTIFY PLAYER "+token)}
-           <Player accessToken={token} trackUri={playingTrack?.uri} />
-        </Grid>
+           {(playingTrack) ? <Player accessToken="BQCW7zd5J-k1ftXPjj5YAcposCjyMd9jyOFr5HfGDy-idbmCQhB76exkWkT_SqdGJlCD0y5VjN4NeIJcf7hu8buaXhen3d4xxg7yreHLkiBg5_cOCTM0ak_Vr7fPVzhztViGdKW7jUu-87xFsyw893iYYMvhCTmqGWwxa0ruErR6JLapEf9Gjy_9szo" trackUri={playingTrack?.uri} />:""}
+        </Grid> 
 
             
         
