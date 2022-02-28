@@ -3,6 +3,7 @@ import { supabase } from '../../config/supabaseClient'
 import Avatar from '../../components/avatar'
 import i18next from '../../config/localization/i18n';
 
+
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
@@ -75,6 +76,8 @@ export default function Account({ session }) {
   }
 
   return (
+    
+    
     <div className="form-widget">
 
       <div style={{ width: 150 }}>
@@ -129,5 +132,6 @@ export default function Account({ session }) {
         </button>
       </div>
     </div>
+
   )
 }
