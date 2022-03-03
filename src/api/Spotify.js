@@ -11,7 +11,7 @@ export const getSpotifyToken = async () => {
     try{
         console.log("Se genera TOKEN EN COOKIE");
         const token_url= "https://accounts.spotify.com/api/token";
-        const data = qs.stringify({ grant_type: "client_credentials",scope:"streaming,user-read-email,user-read-private"});
+        const data = qs.stringify({ grant_type: "client_credentials" });
         const response = await axios.post(token_url, data, {
             headers: {
                 Authorization: `Basic ${AUTH_TOKEN}`,

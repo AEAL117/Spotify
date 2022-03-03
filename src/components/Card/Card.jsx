@@ -9,12 +9,11 @@ import Typography from '@mui/material/Typography';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
-
+ 
 export default function MediaControlCard({name, artist, image,chooseTrack,track}) {
   const theme = useTheme();
   function handlePlay() {
     chooseTrack(track)
-    console.log("TRACK SELECCIONADO ES = "+track.name);
   }
   return (
     <a style={{ textDecoration: 'none',color:'black' }} onClick={handlePlay}>

@@ -12,13 +12,9 @@ import { Card } from "../../components/Card";
 import { getSpotifyToken, spotifySearch } from "../../api/Spotify";
 import Cookies from "universal-cookie";
 import Player from "./Player"
-import { TrackChanges } from "@mui/icons-material";
-
 
 
 const cookies = new Cookies();
-
-
 
 function Home() {
     const [data, setData] = useState([]);
@@ -27,9 +23,10 @@ function Home() {
         query: null,
     });
     const TYPES = ["all", "album", "artist", "track"];
-    const token = cookies.get("token");
+    const token = "BQBtcxZfVUAu2j1oxjl2dxGNzyxK7h1iCU3nNRmMjnBiX4t8yVgXUIhg6HDfmLcbsocS-Xg2Q8Z322sR3NR06jTewyftffBp1KZseAeOS7_gl2RrBwdSiP06Yq29HCQO4eREIKhMVt7fl2-SSPNbbIwCLKpci6b9WAgoBT6DgwD9CtQeooo5joZCXACAJ2XgKPbIgffpcYftK96d_ltUyT3QrQqVxpJ8BoMhWA"
     const [playingTrack, setPlayingTrack] = useState()
-    getSpotifyToken();
+
+    //getSpotifyToken();
 
     //Llamado a busqueda a nuestra clase API
     const search = async () => {
@@ -53,7 +50,12 @@ function Home() {
       }
     return (
         <Grid container marginTop={10}>
+            
+            <Grid item xs={12} marginBottom={10}>
+            <Player accessToken={token} trackUri={playingTrack?.uri} />
+            </Grid>
             <Grid item xs={6}>
+           
                 <TextField
                     id="outlined-search"
                     label="Search Field"
@@ -94,21 +96,16 @@ function Home() {
             >
                 {data?.tracks &&
                     data?.tracks?.items?.map((track, index) => (
-                        
                         <Grid item xs={2} sm={4} md={4} key={index}>
                             <Card
                                 name={track.name}
                                 artist={track.artists[0].name}
                                 image={track.album?.images[0]?.url}
-                                track={track}
+                                url={track.external_urls?.spotify}
                                 chooseTrack={chooseTrack}
-                                
-                                
-                                
+                                track={track}
                             />
-                            
                         </Grid>
-                        
                     ))}
                 {data?.artists &&
                     data?.artists?.items?.map((artist, index) => (
@@ -144,9 +141,8 @@ function Home() {
            <div>
            <h3> <a href="https://github.com/AEAL117/Spotify">GitHub</a></h3>
            </div>
-           {console.log("TOKEN PARA SPOTIFY PLAYER "+token)}
-           {(playingTrack) ? <Player accessToken="BQCW7zd5J-k1ftXPjj5YAcposCjyMd9jyOFr5HfGDy-idbmCQhB76exkWkT_SqdGJlCD0y5VjN4NeIJcf7hu8buaXhen3d4xxg7yreHLkiBg5_cOCTM0ak_Vr7fPVzhztViGdKW7jUu-87xFsyw893iYYMvhCTmqGWwxa0ruErR6JLapEf9Gjy_9szo" trackUri={playingTrack?.uri} />:""}
-        </Grid> 
+          
+        </Grid>
 
             
         
