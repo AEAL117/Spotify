@@ -9,7 +9,7 @@ export default function useAuth(code) {
   useEffect(() => {
     console.log("Token de URL "+code);
     axios
-      .post("http://localhost:3001/login", {
+      .post("https://agitated-kalam-b1a6fd.netlify.app/login", {
         code,
       })
       .then(res => {
@@ -27,7 +27,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return
     const interval = setInterval(() => {
       axios
-        .post("http://localhost:3001/refresh", {
+        .post("https://agitated-kalam-b1a6fd.netlify.app/refresh", {
           refreshToken,
         })
         .then(res => {
