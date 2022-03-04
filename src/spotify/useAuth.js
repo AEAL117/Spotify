@@ -5,12 +5,15 @@ export default function useAuth(code) {
   const [accessToken, setAccessToken] = useState()
   const [refreshToken, setRefreshToken] = useState()
   const [expiresIn, setExpiresIn] = useState()
+  const headers = {
+    'Origin': 'https://lit-peak-03459.herokuapp.com'
+  }
 
   useEffect(() => {
     console.log("Token de URL "+code);
     axios
       .post("https://powerful-springs-68741.herokuapp.com/https://lit-peak-03459.herokuapp.com/login", {
-        code,
+        code,headers: headers
       })
       .then(res => {
         setAccessToken(res.data.accessToken)
@@ -28,7 +31,7 @@ export default function useAuth(code) {
     const interval = setInterval(() => {
       axios
         .post("https://powerful-springs-68741.herokuapp.com/https://lit-peak-03459.herokuapp.com/refresh", {
-          refreshToken,
+          refreshToken, headers: headers
         })
         .then(res => {
           setAccessToken(res.data.accessToken)
