@@ -29,7 +29,7 @@ export default function Dashboard({ code }) {
     if (!playingTrack) return
 
     axios
-      .get("https://lit-peak-03459.herokuapp.com/lyrics", {
+      .get("https://powerful-springs-68741.herokuapp.com/https://lit-peak-03459.herokuapp.com/lyrics", {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
