@@ -5,10 +5,8 @@ import Auth from './components/auth'
 import Account from './components/account'
 import {BrowserRouter, Route,Routes} from 'react-router-dom'
 import { HomePage } from "./pages/Home";
-
 export default function Home() {
   const [session, setSession] = useState(null)
-
   useEffect(() => {
     setSession(supabase.auth.session())
 
