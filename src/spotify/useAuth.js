@@ -9,7 +9,7 @@ export default function useAuth(code) {
   useEffect(() => {
     console.log("Token de URL "+code);
     axios
-      .post("https://agitated-kalam-b1a6fd.netlify.app/login", {
+      .post("https://lit-peak-03459.herokuapp.com/login", {
         code,
       })
       .then(res => {
@@ -27,7 +27,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return
     const interval = setInterval(() => {
       axios
-        .post("https://agitated-kalam-b1a6fd.netlify.app/refresh", {
+        .post("https://lit-peak-03459.herokuapp.com/refresh", {
           refreshToken,
         })
         .then(res => {
