@@ -5,7 +5,7 @@ import TrackSearchResult from "./TrackSearchResult"
 import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
-
+import ResponsiveAppBar from "../components/navbar/"
 const spotifyApi = new SpotifyWebApi({
   clientId: "20b403ab2d1d4197abc74cf55ff79a0d",
 })

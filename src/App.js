@@ -23,6 +23,7 @@ export default function Home() {
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
     <Routes>
     <Route path='/' element={!session ? <Auth /> : <HomePage/>}/>
+    
     <Route path='/perfil' element={!session ? <Auth /> : <Account key={session.user.id} session={session} />} />
     </Routes>
     

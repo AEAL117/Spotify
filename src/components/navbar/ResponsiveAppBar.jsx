@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import i18next from '../../config/localization/i18n';
+import { Link } from 'react-router-dom';
 
 const pages = [i18next.t("menu1"), i18next.t("menu2")];
 const settings = [];
@@ -81,11 +82,16 @@ const ResponsiveAppBar = ({usName,avatar}) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={setRoot()}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem>
+                  <Link className="Nav__link" to="/perfil">{i18next.t("menu2")}</Link>
+
                 </MenuItem>
-              ))}
+                <MenuItem>
+                <Link className="Nav__link" to="/">{i18next.t("menu1")}</Link>
+                </MenuItem>
+                
+              <Link className="Nav__link" to="/perfil">Link 1</Link>
             </Menu>
           </Box>
           <Typography

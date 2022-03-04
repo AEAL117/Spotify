@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../../config/supabaseClient'
 import Avatar from '../../components/avatar'
 import i18next from '../../config/localization/i18n';
-
+import ResponsiveAppBar from "../navbar"
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -79,7 +79,7 @@ export default function Account({ session }) {
     
     
     <div className="form-widget">
-
+    
       <div style={{ width: 150 }}>
         <button className="button primary block" onClick={() => changeLenguage()} >{i18next.t("lan")}</button>
       </div>
