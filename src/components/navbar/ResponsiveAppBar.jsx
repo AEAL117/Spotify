@@ -84,14 +84,14 @@ const ResponsiveAppBar = ({usName,avatar}) => {
             >
               
                 <MenuItem>
-                  <Link className="Nav__link" to="/perfil">{i18next.t("menu2")}</Link>
+                  <Link  to="/perfil">{i18next.t("menu2")}</Link>
 
                 </MenuItem>
                 <MenuItem>
-                <Link className="Nav__link" to="/">{i18next.t("menu1")}</Link>
+                <Link  to="/">{i18next.t("menu1")}</Link>
                 </MenuItem>
                 
-              <Link className="Nav__link" to="/perfil">Link 1</Link>
+          
             </Menu>
           </Box>
           <Typography
@@ -104,15 +104,16 @@ const ResponsiveAppBar = ({usName,avatar}) => {
             
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+
+              <Link to="/"><Button
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+             {i18next.t("menu1")}
+            </Button></Link>
+
+            <Link to="/perfil"><Button
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >{i18next.t("menu2")}</Button></Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

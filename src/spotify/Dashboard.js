@@ -6,30 +6,23 @@ import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
 import ResponsiveAppBar from "../components/navbar/"
-import { useNavigate } from "react-router-dom";
 const spotifyApi = new SpotifyWebApi({
   clientId: "20b403ab2d1d4197abc74cf55ff79a0d",
 })
 
 export default function Dashboard({ code }) {
   const accessToken = useAuth(code)
-  const navigate = useNavigate();
+
   console.log("Token de Acceso ==="+accessToken);
   const [search, setSearch] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [playingTrack, setPlayingTrack] = useState()
   const [lyrics, setLyrics] = useState("")
-  isValidToken();
+
   function chooseTrack(track) {
     setPlayingTrack(track)
     setSearch("")
     setLyrics("")
-  }
-
-  function isValidToken(){
-    if (!accessToken) {
-      navigate("/");
-    }
   }
 
   useEffect(() => {
