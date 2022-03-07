@@ -77,6 +77,7 @@ export default function Dashboard({ code }) {
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+      <ResponsiveAppBar/>
       <Form.Control
         type="search"
         placeholder="Search Songs/Artists"

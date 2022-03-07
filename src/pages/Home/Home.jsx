@@ -6,6 +6,6 @@ const code = new URLSearchParams(window.location.search).get("code")
 
 function Home() {
     
-    return code ? <Dashboard code={code} /> : <SLogin />
+    return  <SLogin />
 }
 export default Home;
