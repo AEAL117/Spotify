@@ -41,7 +41,9 @@ export default function Dashboard({ code }) {
   }, [playingTrack])
 
   useEffect(() => {
-    if (!accessToken) return
+    if (!accessToken){
+      window.location = "/"
+    }
     spotifyApi.setAccessToken(accessToken)
   }, [accessToken])
 
