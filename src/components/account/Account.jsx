@@ -79,7 +79,7 @@ export default function Account({ session }) {
     
     
     <div className="form-widget">
-    
+      <ResponsiveAppBar/>
       <div style={{ width: 150 }}>
         <button className="button primary block" onClick={() => changeLenguage()} >{i18next.t("lan")}</button>
       </div>
