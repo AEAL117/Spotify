@@ -14,13 +14,13 @@ import MenuItem from '@mui/material/MenuItem';
 import i18next from '../../config/localization/i18n';
 import { Link } from 'react-router-dom';
 
-const pages = [i18next.t("menu1"), i18next.t("menu2")];
+
 const settings = [];
 
-const ResponsiveAppBar = ({usName,avatar}) => {
+const ResponsiveAppBar = ({ usName, avatar }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
- 
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,8 +37,8 @@ const ResponsiveAppBar = ({usName,avatar}) => {
     setAnchorElUser(null);
   };
 
-  function setRoot(){
-    
+  function setRoot() {
+
   }
   return (
     <AppBar position="static">
@@ -82,16 +82,19 @@ const ResponsiveAppBar = ({usName,avatar}) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              
-                <MenuItem>
-                  <Link  to="/perfil">{i18next.t("menu2")}</Link>
 
-                </MenuItem>
-                <MenuItem>
-                <Link  to="/">{i18next.t("menu1")}</Link>
-                </MenuItem>
-                
-          
+              <MenuItem>
+                <Link to="/perfil">{i18next.t("menu2")}</Link>
+
+              </MenuItem>
+              <MenuItem>
+                <Link to="/">{i18next.t("menu1")}</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="https://github.com/AEAL117/Spotify/tree/feature/router">Repo GIT</Link>
+              </MenuItem>
+
+
             </Menu>
           </Box>
           <Typography
@@ -101,28 +104,32 @@ const ResponsiveAppBar = ({usName,avatar}) => {
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             SUPA
-            
+
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-              <Link to="/"><Button
+            <Link to="/"><Button
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-             {i18next.t("menu1")}
+              {i18next.t("menu1")}
             </Button></Link>
 
             <Link to="/perfil"><Button
               sx={{ my: 2, color: 'white', display: 'block' }}
             >{i18next.t("menu2")}</Button></Link>
+
+            <Link to="https://github.com/AEAL117/Spotify/tree/feature/router"><Button
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >REPO GIT</Button></Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-          
+
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-               
-                <Avatar alt="Remy Sharp" src= {(avatar) ? avatar  : "/static/images/avatar/2.jpg"}/>
-                
+
+                <Avatar alt="Remy Sharp" src={(avatar) ? avatar : "/static/images/avatar/2.jpg"} />
+
               </IconButton>
             </Tooltip>
             <Menu
